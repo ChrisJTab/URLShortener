@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir /virtual/a1group08
+rm /virtual/a1group08/full.db
+sqlite3 /virtual/a1group08/full.db < schema.sql
+sqlite3 /virtual/a1group08/main.db < col3.sql
+
+sqlite3 /virtual/a1group08/backup.db < col3.sql
+chmod 777  /virtual/a1group08/main.db
+chmod 777  /virtual/a1group08/backup.db
+
+javac App.java
+java -classpath ".:sqlite-jdbc-3.39.3.0.jar" InsertFromTextFile.java "jdbc:sqlite:/virtual/a1group08/full.db"

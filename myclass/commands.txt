@@ -1,0 +1,18 @@
+
+FOR Reverse Proxy:
+    clear; javac ./myclass/ReverseProxy.java; java ./myclass/ReverseProxy.java 8800 6565
+
+FOR URLShortner:
+    clear; javac ./myclass/URLShortner.java; java -cp .:./javaSQLite/sqlite-jdbc-3.39.3.0.jar ./myclass/URLShortner.java 6565
+
+    javac ./myclass/URLShortnerIB.java; java -cp .:./javaSQLite/sqlite-jdbc-3.39.3.0.jar ./myclass/URLShortnerIB.java 62467
+
+    javac ./myclass/URL1.java; java -cp .:./javaSQLite/sqlite-jdbc-3.39.3.0.jar ./myclass/URL1.java 6246
+
+7531   6246
+
+FOR GET:
+    curl -v -X GET "http://dh2010pc00:8800/sid"
+
+FOR PUT:
+    curl -X PUT "http://dh2010pc00:8800/?short=sid2&long=testWithLouis1"

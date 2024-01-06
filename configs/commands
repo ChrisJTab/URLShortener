@@ -1,0 +1,1 @@
+cd ~/Documents/CSC409/a1group08/; HOST=$(uname -n); java ./URLShortner.java 80 >"./logs/$HOST.stdout" 2>"./logs/$HOST.stderr"

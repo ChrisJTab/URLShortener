@@ -1,0 +1,37 @@
+http://localhost:8080/K0OZ10951G56LZY88BPT
+http://localhost:8080/M6P9R8YUESWW6VFKHDT7
+http://localhost:8080/UPLHVWX60SC2AQXPA3AH
+http://localhost:8080/IOR33POMTQ9VEFQ68DNH
+http://localhost:8080/OSCMTBCRE0F27Q5DI4SY
+http://localhost:8080/IA7SNLNHKY7T1XBFBUI5
+http://localhost:8080/ZQ92H84MSCGZ66H34UMP
+http://localhost:8080/5YHCP5OYAHVDXLOPLZXR
+http://localhost:8080/3UV51YNP7Y0YQSLAF95K
+http://localhost:8080/4HQKKL6COFJ98V2FS2C7
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FindMatchingString {
+
+    public static void main(String[] args) {
+        // Create a HashMap with keys and corresponding strings
+        Map<Integer, String> stringDict = new HashMap<>();
+        stringDict.put(0, "dh2026pc01");
+        stringDict.put(1, "dh2026pc02");
+        stringDict.put(2, "dh2026pc03");
+        stringDict.put(3, "dh2026pc04");
+
+        // Specify the key for which you want to find the matching string
+        int keyToFind = 2;
+
+        // Check if the key exists in the map
+        if (stringDict.containsKey(keyToFind)) {
+            // Retrieve the matching string
+            String matchingString = stringDict.get(keyToFind);
+            System.out.println("Matching String for Key " + keyToFind + ": " + matchingString);
+        } else {
+            System.out.println("Key " + keyToFind + " not found in the dictionary.");
+        }
+    }
+}

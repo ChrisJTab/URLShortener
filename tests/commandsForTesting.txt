@@ -1,0 +1,31 @@
+
+# Testing the URLShortner with DB
+java -cp .:./javaSQLite/sqlite-jdbc-3.39.3.0.jar URLShortnerDB
+curl -X PUT "http://localhost:8080/?short=03&long=dh2026pc03" -H "Content-Length: 0"
+curl -v http://localhost:8080/K0OZ10951G56LZY88BPT
+
+
+# Testing Reverse proxy 
+ssh bessibra@dh2026pc02.utm.utoronto.ca
+cd ~/Documents/CSC409/a1group08
+cd ~/Documents/CSC409/a1group08
+java URLShortner.java 6565
+javac URLShortner.java
+javac ReverseProxyThreadPool.java
+java ReverseProxyThreadPool 8282 6565
+curl -v http://dh2020pc17:8282/K0OZ10951G56LZY88BPT
+curl -v http://dh2020pc17:8282/bess
+curl -v http://dh2020pc17:8282/4XOC7QU0M9TGIGTG0H2N
+curl -v http://dh2020pc17:8282/0BO7VVUATMWO78DGXU4V
+
+ssh dh2026pc01 mkdir /virtual/a1group08
+
+# Testing URLShortnerDB
+java -cp .:./javaSQLite/sqlite-jdbc-3.39.3.0.jar URLShortnerDB 6565
+java ReverseProxyThreadPool 8282 6565
+curl -X PUT "http://dh2020pc17:8282/?short=25&long=testWithLouis1" -H "Content-Length: 0"
+curl -X PUT "http://dh2020pc17:8282/?short=26&long=testWithLouis2" -H "Content-Length: 0"
+
+
+sqlite3 /virtual/a1group08/full.db
+SELECT * FROM stuff WHERE short = '04';

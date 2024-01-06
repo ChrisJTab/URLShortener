@@ -1,0 +1,24 @@
+#!/bin/bash
+java URLShortnerSerial
+ab -n 10000 -c 10 -k -i -l http://localhost:6565/K0OZ10951G56LZY88BPT > ./tests/serial.out
+
+
+#kill the serial server
+??????????
+
+
+java URLShortner
+ab -n 10000 -c 10 -k -i -l http://localhost:8080/K0OZ10951G56LZY88BPT > ./tests/threads.out
+
+
+#kill the threaded server
+??????????
+
+Random
+ab -n 10000 -c 10 -k -i -l http://localhost:6565/K0OZ10951G56LZY88BPT?cache_bypass=%RANDOM%
+
+
+# To feel a signigicant difference:
+ab -n 100000 -c 15 -k -i -l http://localhost:6565/K0OZ10951G56LZY88BPT?cache_bypass=%RANDOM% > ./tests/serial.out
+ab -n 100000 -c 15 -k -i -l http://localhost:8080/K0OZ10951G56LZY88BPT?cache_bypass=%RANDOM% > ./tests/threadpool.out
+ab -n 100000 -c 15 -k -i -l http://localhost:8888/K0OZ10951G56LZY88BPT?cache_bypass=%RANDOM% > ./tests/thread.out
